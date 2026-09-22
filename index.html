@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101d2b">
+  <title>سباق لا النافية للجنس</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="polish.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="race" aria-label="حلبة سباق سيارات"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="hud" aria-live="polite">
+      <div class="brand"><span class="brand-mark">لا</span><span>سباق<br><b>النافية للجنس</b></span></div>
+      <div class="hud-center"><span id="stage">المحطة الأولى</span><strong id="progress">٠ / ١٠</strong><div class="progress-rail"><i id="progress-fill"></i></div></div>
+      <div class="hud-stats"><div><small>النقاط</small><strong id="score">٠</strong></div><div><small>السرعة</small><strong><span id="speed">٠</span> <small>كم/س</small></strong></div><button id="sound-toggle" class="icon-btn" type="button" aria-label="إيقاف الصوت" title="الصوت">♫</button></div>
+    </header>
+
+    <div id="checkpoint-sign" class="checkpoint-sign" aria-hidden="true"><span>بوابة السؤال</span><strong id="checkpoint-number">١</strong></div>
+    <div id="race-tip" class="race-tip">قد سيارتك نحو البوابة التالية</div>
+
+    <section id="start-screen" class="screen visible" aria-labelledby="game-title">
+      <div class="start-inner">
+        <p class="eyebrow">تحدّي الصف العاشر</p>
+        <h1 id="game-title">سباق <em>لا النافية للجنس</em></h1>
+        <p class="lede">قُد سيارتك، وافتح بوابات الحلبة بالإجابة عن أسئلة ورقة عمل المعلم.</p>
+        <div class="start-details"><span>٣ مراحل</span><span>١٠ بوابات</span><span>سباق قابل للقيادة</span></div>
+        <p class="controls-hint">القيادة: الأسهم أو WASD. على الهاتف: أزرار الشاشة. عند البوابة تتوقف السيارة لتجيب.</p>
+        <button id="start-btn" class="primary-btn" type="button">ابدأ السباق <span aria-hidden="true">←</span></button>
+      </div>
+      <div class="start-car" aria-hidden="true"><div class="car-shadow"></div><div class="car-body"><div class="car-window"></div><div class="car-stripe"></div><div class="wheel front"></div><div class="wheel rear"></div></div></div>
+    </section>
+
+    <section id="question-screen" class="screen" aria-labelledby="question-title" aria-modal="true" role="dialog">
+      <div class="question-panel">
+        <div class="question-top"><span id="question-phase" class="phase-tag"></span><span id="question-count" class="question-count"></span></div>
+        <h2 id="question-title"></h2>
+        <p id="question-instruction" class="question-instruction" hidden></p>
+        <p id="question-prompt" class="question-prompt"></p>
+        <div id="answers" class="answers"></div>
+        <div id="input-area" class="input-area" hidden><label for="written-answer">اكتب الجملة بعد إدخال (لا)</label><input id="written-answer" type="text" dir="rtl" autocomplete="off" spellcheck="false"><button id="check-written" class="primary-btn" type="button">تحقّق من الإجابة</button></div>
+        <p id="hint" class="hint" hidden></p>
+        <div id="feedback" class="feedback" role="status" aria-live="assertive" hidden></div>
+        <div class="question-actions"><button id="reveal-btn" class="text-btn" type="button" hidden>عرض الإجابة النموذجية</button><button id="continue-btn" class="primary-btn" type="button" hidden>افتح البوابة وتابع السباق ←</button></div>
+      </div>
+    </section>
+
+    <section id="finish-screen" class="screen" aria-labelledby="finish-title">
+      <div class="finish-panel"><span class="finish-emblem">🏁</span><p class="eyebrow">خط النهاية</p><h2 id="finish-title">أنهيت السباق!</h2><p id="finish-summary"></p><div id="review" class="review"></div><div class="reflection"><h3>الغلق الختامي</h3><p>لخِّص أهمَّ ما تعلَّمناه اليوم، ثمَّ أجب عن الأسئلة الآتية:</p><ol><li>ماذا تعلَّمتَ اليوم؟</li><li>ما الذي تفيده (لا) النافية للجنس؟</li><li>ما شروط عمل (لا) النافية للجنس عمل (إنَّ)؟</li></ol><p class="source-note">المصدر: خطة التحضير اليومية — الغلق الختامي</p></div><button id="restart-btn" class="primary-btn" type="button">سباق جديد</button></div>
+    </section>
+
+    <div class="touch-controls" aria-label="أزرار قيادة السيارة"><button data-key="left" aria-label="اتجه يسارًا">◀</button><button data-key="accelerate" aria-label="تسارع">▲</button><button data-key="brake" aria-label="فرامل">▼</button><button data-key="right" aria-label="اتجه يمينًا">▶</button></div>
+    <footer class="source-footer">الأسئلة والإجابات: ورقة عمل (تدريب إضافي) — نموذج الإجابة، من إعداد المعلم</footer>
+  </main>
+  <script src="data.js"></script>
+  <script src="racer-engine.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

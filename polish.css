@@ -1,0 +1,8 @@
+.start-car{left:8%;top:48%}
+.question-instruction{font-size:15px;line-height:1.7;color:#685137;margin:4px 0 2px}
+.finish-panel{padding-top:22px;padding-bottom:20px}
+.finish-panel .finish-emblem{font-size:36px}
+.finish-panel .review{margin:12px 0}
+.finish-panel .reflection{margin:15px 0;padding:14px}
+.finish-panel .reflection ol{line-height:1.55}
+@media(max-width:760px){.start-car{left:40%;top:68%;transform:scale(.42) rotate(-7deg)}.finish-panel{max-height:88dvh}.finish-panel h2{font-size:28px}.finish-panel>p{font-size:16px}.reflection{font-size:13px}}
